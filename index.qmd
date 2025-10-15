@@ -1,6 +1,6 @@
 ---
 title: "Federico Giovannetti"
-# image: avatar.jpg
+image: foto_giovannetti.jpg
 about:
   template: trestles
   links:
@@ -21,11 +21,19 @@ comments: false
 
 ## Bio
 
+Soy Argentino, nacido en el partido de Quilmes. Me recibí como Doctor en **Psicología** en la Universidad Nacional de Córdoba (UNC) y como Licenciado en Psicología en la Universidad Favaloro. 
+
+En el ámbito de la **investigación**, me desempeño como Becario postdoctoral CONICET en la **Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET)**. En agosto de 2025 me salió el ingreso a la Carrera de Investigador Científico (CIC) para la cual estoy esperando el alta.
+
+Siempre me dediqué al estudio del **desarrollo cognitivo infantil en contextos de vulnerabilidad social** a partir de diferentes niveles de análisis (cognitivo, neural, contextual). También tengo interés en el estudio de las **agendas científicas sobre desarrollo infantil** en la Argentina, y el desarrollo de la psicología como disciplina científica.
+
+La **ciencia de datos** es mi principal herramienta de trabajo. Principalmente trabajo con **R**, aunque cada tanto hago alguna que otra cosa con Python. Me interesa mucho poder aplicar el conocimiento proveniente de las ciencias de datos, la programación estadística y el machine learning a las ciencias del desarrollo y las políticas públicas. Además, me interesa mucho colaborar en la construcción de una mayor transparencia, apertura y reproducibilidad en el uso de datos cognitivos.
+
+Ejercí y ejerzo la docencia en distintas instituciones de grado y posgrado entre las que se encuentran la Universidad Nacional de San Martin (UNSAM), la Universidad Nacional de Córdoba (UNC), y la Universidad Favaloro.
 
 
 <p></p>
 
-## Selected Projects
 
 
 :::

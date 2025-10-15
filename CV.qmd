@@ -1,0 +1,88 @@
+---
+title: "Dr. Federico Giovannetti"
+bibliography: mis_publicaciones.bib
+csl: apa.csl
+# Esta opción es clave para que la lista de referencias se imprima al final
+cite-section-title: "Publicaciones"
+nocite: | 
+  @*
+---
+
+## I.	Antecedentes Académicos:
+
+### 1.- Estudios de grado:
+
+Lic. en Psicología
+Universidad Favaloro, Facultad de ciencias humanas y de la conducta. Psicología. C.A.B.A, Argentina. (2010 – 2014)
+
+### 2.- Estudios de posgrado:
+
+Doctor en Psicología.
+Proyecto: “Desarrollo autorregulatorio en contextos de pobreza: Consideración de las diferencias individuales en el desempeño y en el diseño de intervenciones”. Nota final : 10.
+Asesor Científico: Dr. Lipina, Sebastián Javier
+Co- asesora científica: Dra. Segretin, María Solead
+Universidad Nacional de Córdoba, Facultad de Psicología. Córdoba. (2016- 2021).
+
+## 3.- Becas Académicas
+
+Becario posdoctoral CONICET (UNA, CEMIC-CONICET) 2023- actualidad
+Tema: “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas”. Directora: Dra. María Soledad Segretin. Co-director: Dr. Juan Esteban Kamienkowski. Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
+
+Becario doctoral CONICET (UNA, CEMIC-CONICET) 2019- 2022
+Tema de Tesis: “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Director: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
+
+Becario FONCyT (UNA, CEMIC-CONICET) 2016- 2019
+Proyecto: PICT 2014 “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Fondo Nacional de Ciencia y Técnica (FONCyT). Investigador responsable: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
+
+## 4.- Becas para eventos científicos
+
+Peekbank Hackathon (Stanford University) Agosto 2024. 
+
+Early Career Researcher (ISSBD) Octubre 2019. 
+ISSBD Regional Workshop “Investing in Sustainable Childhoods: Implications for preventive and intervention research”. Universidad del Aconcagua. Mendoza 
+
+Student Fellow (James S. McDonnell Foundation) Marzo 2016.
+6th Latin- American School for Education, Cognitive, and Neural Sciences. Lujan, Argentina.
+
+## 5.- Publicaciones científicas:	
+
+# Publicaciones
+
+```{r}
+library(scholar)
+library(RefManageR)
+library(dplyr)
+
+scholar_id <- "O257bnQAAAAJ" 
+pubs_df <- get_publications(scholar_id)
+
+bib_data <- pubs_df %>%
+  # Ordenamos por año para que aparezcan las más nuevas primero
+  arrange(desc(year)) %>%
+  mutate(
+    bibtype = "article", # Asumimos que la mayoría son artículos
+        key = {
+      clean_author <- gsub("[^A-Za-z0-9]", "", sub(" .*", "", author))
+      clean_title <- gsub("[^A-Za-z0-9]", "", gsub(" .*", "", title))
+      paste0(clean_author, year, clean_title)
+    },
+    # key = paste0(sub(" .*", "", author), year, gsub(" .*", "", title)), # Crea una clave única
+    # Renombramos las columnas del data frame a los campos estándar de BibTeX
+    author = author,
+    title = title,
+    journal = journal,
+    year = year,
+    number = number,
+    # pages = pages,
+    doi = "https://doi.org/" # Puedes agregar el DOI si lo tienes
+  )
+
+# 4. Convertir a formato BibEntry (de RefManageR)
+bib_entries <- as.BibEntry(bib_data)
+
+# 5. Escribir el archivo .bib ¡Aquí ocurre la magia!
+# Este es el archivo que tu YAML está esperando.
+WriteBib(bib_entries, file = "mis_publicaciones.bib", fileEncoding = "UTF-8", append = FALSE, verbose = FALSE)
+
+```
+
