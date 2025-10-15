@@ -1,0 +1,31 @@
+---
+title: "Federico Giovannetti"
+# image: avatar.jpg
+about:
+  template: trestles
+  links:
+    # - text: LinkedIn
+      # url:
+    - text: GitHub
+      icon: github
+      url: "https://github.com/fedegiovannetti"
+    - text: Email
+      url: "mailto:giovannettipsi@gmail.com"
+    # - text: Blog
+      # url: "blog.html"
+    # - text: CV
+      # url: "cv.pdf"
+comments: false
+---
+::: {.column-page}
+
+## Bio
+
+
+
+<p></p>
+
+## Selected Projects
+
+
+:::
