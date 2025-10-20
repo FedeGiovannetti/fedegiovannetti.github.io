@@ -1,11 +1,8 @@
 ---
 title: "Dr. Federico Giovannetti"
-bibliography: mis_publicaciones.bib
 csl: apa.csl
-# Esta opción es clave para que la lista de referencias se imprima al final
-cite-section-title: "Publicaciones"
-nocite: | 
-  @*
+citeproc: false
+nocite: "@*"
 ---
 
 ## I.	Antecedentes Académicos:
@@ -18,7 +15,7 @@ Universidad Favaloro, Facultad de ciencias humanas y de la conducta. Psicología
 ### 2.- Estudios de posgrado:
 
 Doctor en Psicología.
-Proyecto: “Desarrollo autorregulatorio en contextos de pobreza: Consideración de las diferencias individuales en el desempeño y en el diseño de intervenciones”. Nota final : 10.
+Proyecto: “Desarrollo autorregulatorio en contextos de pobreza: Consideración de las diferencias individuales en el desempeño y en el diseño de intervenciones”. 
 Asesor Científico: Dr. Lipina, Sebastián Javier
 Co- asesora científica: Dra. Segretin, María Solead
 Universidad Nacional de Córdoba, Facultad de Psicología. Córdoba. (2016- 2021).
@@ -44,45 +41,42 @@ ISSBD Regional Workshop “Investing in Sustainable Childhoods: Implications for
 Student Fellow (James S. McDonnell Foundation) Marzo 2016.
 6th Latin- American School for Education, Cognitive, and Neural Sciences. Lujan, Argentina.
 
-## 5.- Publicaciones científicas:	
+## 5.- Publicaciones:
 
-# Publicaciones
+### 5.1. Publicaciones en revistas científicas
 
 ```{r}
-library(scholar)
+#| echo: false
+#| results: asis
+
 library(RefManageR)
-library(dplyr)
 
-scholar_id <- "O257bnQAAAAJ" 
-pubs_df <- get_publications(scholar_id)
+BibOptions(check.entries = FALSE)
 
-bib_data <- pubs_df %>%
-  # Ordenamos por año para que aparezcan las más nuevas primero
-  arrange(desc(year)) %>%
-  mutate(
-    bibtype = "article", # Asumimos que la mayoría son artículos
-        key = {
-      clean_author <- gsub("[^A-Za-z0-9]", "", sub(" .*", "", author))
-      clean_title <- gsub("[^A-Za-z0-9]", "", gsub(" .*", "", title))
-      paste0(clean_author, year, clean_title)
-    },
-    # key = paste0(sub(" .*", "", author), year, gsub(" .*", "", title)), # Crea una clave única
-    # Renombramos las columnas del data frame a los campos estándar de BibTeX
-    author = author,
-    title = title,
-    journal = journal,
-    year = year,
-    number = number,
-    # pages = pages,
-    doi = "https://doi.org/" # Puedes agregar el DOI si lo tienes
-  )
+# Lee la bibliografía
+bib <- ReadBib("pubs.bib", check = FALSE)
 
-# 4. Convertir a formato BibEntry (de RefManageR)
-bib_entries <- as.BibEntry(bib_data)
+# NoCite registra todas las entradas (aunque no estén citadas)
+NoCite(bib)
 
-# 5. Escribir el archivo .bib ¡Aquí ocurre la magia!
-# Este es el archivo que tu YAML está esperando.
-WriteBib(bib_entries, file = "mis_publicaciones.bib", fileEncoding = "UTF-8", append = FALSE, verbose = FALSE)
+# Imprime toda la bibliografía con formato personalizado
+PrintBibliography(bib, .opts = list(
+  sorting = "ydnt",         # orden: año descendente, autor, título
+  bib.style = "authoryear", # estilo Autor-Año
+  first.inits = TRUE         # iniciales en lugar de nombres completos
+))
 
 ```
+
+### 5..2. Presentaciones en Congresos
+
+
+
+
+
+
+
+
+
+
 
