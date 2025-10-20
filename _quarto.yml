@@ -7,7 +7,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: CV.qmd
+        text: CV
 
 format:
   html:
@@ -15,7 +16,7 @@ format:
       - cosmo
       - brand
     css: styles.css
-    # toc: true
+    toc: true
 
 editor: visual
 

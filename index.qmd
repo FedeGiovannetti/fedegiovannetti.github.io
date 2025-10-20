@@ -16,6 +16,7 @@ about:
     # - text: CV
       # url: "cv.pdf"
 comments: false
+toc: false
 ---
 ::: {.column-page}
 ## Bio

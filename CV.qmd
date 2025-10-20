@@ -1,9 +1,66 @@
 ---
-title: "Dr. Federico Giovannetti"
+title: Dr. Federico Giovannetti
 csl: apa.csl
 citeproc: false
 nocite: "@*"
+format:
+  html:
+    theme: cosmo
+    toc: true
+  pdf:
+    documentclass: article
+    lang: es
+    geometry: "margin=2cm" # <--- Añade esta línea
+
+website:
+  navbar:
+    right:
+      - text: "Descargar PDF"
+        icon: "download"
+        href: CV.pdf
 ---
+
+::: {.content-visible when-format="html"}
+
+:::: {.columns style="align-items: flex-start;"}
+
+::: {.column width="70%"}
+[giovannettipsi@gmail.com](mailto:giovannettipsi@gmail.com)
+
+**Idiomas:** Español, inglés y portugués  
+**Programación:** R, Shiny, Github, Python, MNE.  
+
+![](logo_UNA.png){width="70%"}
+:::
+
+::: {.column width="30%"}
+<div style="margin-top: -15px;">
+![](foto_giovannetti.jpg){width="100%"}
+</div>
+:::
+
+::::
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+```{=latex}
+\noindent
+\begin{minipage}[t]{0.7\textwidth}
+\vspace{0pt} % Alineación superior
+\href{mailto:giovannettipsi@gmail.com}{giovannettipsi@gmail.com} \\
+\textbf{Idiomas:} Español, inglés y portugués \\
+\textbf{Programación:} R, Shiny, Github, Python, MNE.
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.25\textwidth}
+\vspace{0pt} % Alineación superior
+\includegraphics[width=\linewidth]{foto_giovannetti.jpg}
+\end{minipage}
+```
+:::
+
 
 ## 1.	Antecedentes Académicos:
 
@@ -96,9 +153,42 @@ PrintBibliography(bib, .opts = list(
 
 ```
 
-## 3. Becas
+## 3.	Antecedentes laborales de investigación
 
-### 3.1. Becas académicas
+Becario posdoctoral (UNA, CEMIC- CONICET) 2023- Presente.
+Proyecto: PICT 2021 “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas”. Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET). Directora: Dr. María Soledad Segretin. Co-director: Dr. Juan Esteban Kamienkowski.
+
+Investigador asociado (UNA, CEMIC- CONICET) 2022- 2023.
+Proyecto: PICT 2019 “Desarrollo infantil integral: análisis de la relación entre las políticas de primera infancia y la agenda científica”. Fondo Nacional de Ciencia y Técnica (FONCyT). Investigadora responsable: Dr. Mariana C. Smulski. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
+
+Becario doctoral (UNA, CEMIC- CONICET) 2016- 2022.
+Proyecto: PICT 2014 “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Fondo Nacional de Ciencia y Técnica (FONCyT). Investigador responsable: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
+
+Operador (UNA, CEMIC-CONICET) 2014-2015.
+Proyecto: “Vulnerabilidad social y desarrollo cognitivo: estrategias de optimización en contextos de crianza”. Fondo Nacional de Ciencia y Técnica (FONCyT). Período 2011-2014. Investigador responsable: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
+
+## 4. Trayectoria docente:	
+
+Ayudante de Primera. Laboratorio de datos. Instituto de Cálculo. Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires. (2024- actualidad)
+
+Profesor adjunto (dedicación simple). Seminario III: “Pobreza y desarrollo cognitivo: Aportes de la Neurociencia Cognitiva del Desarrollo”. Escuela de Humanidades. Universidad Nacional de San Martin (UNSAM). (2021 - actualidad).
+
+Profesor adjunto. Psicología Evolutiva I. Facultad de Ciencias Humanas y de la Conducta. Universidad Favaloro. Ciudad Autónoma de Buenos Aires. (2024 – actualidad)
+Profesor. Neurociencia y Educación. Maestría en TICs para la educación. Universidad Politécnica Salesiana del Ecuador (2023 – 2024)
+
+Profesor. Nuevos Enfoques en la Cognición. Maestría en Neurociencias. Universidad Favaloro (UF). (2023- 2024).
+
+Profesor adjunto. Análisis de Datos I. Licenciatura en Sociología. Universidad de Flores (UFLO). (2023 - 2024).
+
+Profesor adjunto. Procesos Básicos III. Facultad de Ciencias Humanas y de la Conducta. Universidad Favaloro. Ciudad Autónoma de Buenos Aires. (2020 – 2023)
+
+Profesor adjunto suplente (dedicación simple). Seminario III: “Pobreza y desarrollo cognitivo: Aportes de la Neurociencia Cognitiva del Desarrollo”. Escuela de Humanidades. Universidad Nacional de San Martin (UNSAM). (2020).
+
+Ayudante de Primera (dedicación simple). Seminario III: “Pobreza y desarrollo cognitivo: Aportes de la Neurociencia Cognitiva del Desarrollo”. Escuela de Humanidades. Universidad Nacional de San Martin (UNSAM). (2016 – 2019).
+
+## 5. Becas
+
+### 5.1. Becas académicas
 
 Becario posdoctoral CONICET (UNA, CEMIC-CONICET) 2023- actualidad
 Tema: “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas”. Directora: Dra. María Soledad Segretin. Co-director: Dr. Juan Esteban Kamienkowski. Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
@@ -109,7 +199,7 @@ Tema de Tesis: “Desarrollo cognitivo y aprendizaje en contextos de vulnerabili
 Becario FONCyT (UNA, CEMIC-CONICET) 2016- 2019
 Proyecto: PICT 2014 “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Fondo Nacional de Ciencia y Técnica (FONCyT). Investigador responsable: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
 
-### 3.2. Becas para asistir eventos científicos
+### 5.2. Becas para asistir eventos científicos
 
 Peekbank Hackathon (Stanford University) Agosto 2024. 
 
@@ -119,6 +209,45 @@ ISSBD Regional Workshop “Investing in Sustainable Childhoods: Implications for
 Student Fellow (James S. McDonnell Foundation) Marzo 2016.
 6th Latin- American School for Education, Cognitive, and Neural Sciences. Lujan, Argentina.
 
+
+## 6. Financiamiento:
+
+Investigador Responsable (PICT 2022, CEMIC- CONICET, FONCyT)
+Título del proyecto: “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas en contextos de pobreza”.
+
+## 7.	Formación de Recursos Humanos:	
+
+Lisanti Julieta. Tesis de Licenciatura Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (2023).
+Proyecto: “Asociación entre el desempeño de Torre de Londres con indicadores de control
+inhibitorio e impulsividad teniendo en cuenta diferencias de género”
+Director: Federico giovannetti
+Co-Director: Giovannetti Federico
+
+Urso Maximiliano. Tesis de Licenciatura en Ciencias de la Computación. Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires. (mayo 2021).
+Proyecto: “CorsiBot: Interfaz humano-computadora para la evaluación de memoria de trabajo”
+Director: Matías Lopez-Rosenfeld
+Co-Director: Giovannetti Federico
+
+Bermúdez Daiana. Tesis de Licenciatura en Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (mayo 2021).
+Proyecto: “Análisis de las distintas concepciones etiológicas de los TEA y sus diversas terapias resultantes”
+Director: Giovannetti Federico
+
+Galán Plaché, Dolores. Tesis de Licenciatura en Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (septiembre 2020).
+Proyecto: “Estrategias de afrontamiento y bienestar psicológico: Identificación de diferencias individuales”
+Director: Giovannetti Federico
+
+## 8. Organización de eventos científicos:	
+
+ “III Jornadas de Fundamentos y Aplicaciones de la Interdisciplina” (2022). Ciudad Autónoma de Buenos Aires. Miembro del Comité Organizador.
+“II Jornadas de Fundamentos y Aplicaciones de la Interdisciplina” (2021). Ciudad Autónoma de Buenos Aires. Miembro del Comité Organizador.
+
+## 9    . Actividades de Extensión y divulgación:	
+
+“Desarrollo infantil, vulnerabilidad y cognición: ¿De dónde venimos y hacia dónde vamos? Charla en Pints of Science Argentina 2025
+
+“Círculo de Estudios sobre Infancias y Desarrollo”. Universidad Nacional de San Martin (UNSAM), Carrera de Psicopedagogía (2022 – 2024)
+
+“A Ciencia Abierta: Desarrollo cognitivo y emocional en estudio”. Centro Cultural de la Ciencia. Polo Científico – Tecnológico. Ciudad Autónoma de Buenos Aires (2018 – 2019).
 
 
 
