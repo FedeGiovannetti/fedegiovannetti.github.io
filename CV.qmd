@@ -5,14 +5,14 @@ citeproc: false
 nocite: "@*"
 ---
 
-## I.	Antecedentes Académicos:
+## 1.	Antecedentes Académicos:
 
-### 1.- Estudios de grado:
+### 1.1. Estudios de grado:
 
 Lic. en Psicología
 Universidad Favaloro, Facultad de ciencias humanas y de la conducta. Psicología. C.A.B.A, Argentina. (2010 – 2014)
 
-### 2.- Estudios de posgrado:
+### 1.2. Estudios de posgrado:
 
 Doctor en Psicología.
 Proyecto: “Desarrollo autorregulatorio en contextos de pobreza: Consideración de las diferencias individuales en el desempeño y en el diseño de intervenciones”. 
@@ -20,30 +20,10 @@ Asesor Científico: Dr. Lipina, Sebastián Javier
 Co- asesora científica: Dra. Segretin, María Solead
 Universidad Nacional de Córdoba, Facultad de Psicología. Córdoba. (2016- 2021).
 
-## 3.- Becas Académicas
 
-Becario posdoctoral CONICET (UNA, CEMIC-CONICET) 2023- actualidad
-Tema: “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas”. Directora: Dra. María Soledad Segretin. Co-director: Dr. Juan Esteban Kamienkowski. Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
+## 2.- Publicaciones:
 
-Becario doctoral CONICET (UNA, CEMIC-CONICET) 2019- 2022
-Tema de Tesis: “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Director: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
-
-Becario FONCyT (UNA, CEMIC-CONICET) 2016- 2019
-Proyecto: PICT 2014 “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Fondo Nacional de Ciencia y Técnica (FONCyT). Investigador responsable: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
-
-## 4.- Becas para eventos científicos
-
-Peekbank Hackathon (Stanford University) Agosto 2024. 
-
-Early Career Researcher (ISSBD) Octubre 2019. 
-ISSBD Regional Workshop “Investing in Sustainable Childhoods: Implications for preventive and intervention research”. Universidad del Aconcagua. Mendoza 
-
-Student Fellow (James S. McDonnell Foundation) Marzo 2016.
-6th Latin- American School for Education, Cognitive, and Neural Sciences. Lujan, Argentina.
-
-## 5.- Publicaciones:
-
-### 5.1. Publicaciones en revistas científicas
+### 2.1. Publicaciones en revistas científicas
 
 ```{r}
 #| echo: false
@@ -68,14 +48,76 @@ PrintBibliography(bib, .opts = list(
 
 ```
 
-### 5..2. Presentaciones en Congresos
+### 2.2. Presentaciones en Congresos
 
 
+```{r}
+#| echo: false
+#| results: asis
+
+BibOptions(check.entries = FALSE)
+
+# Lee la bibliografía
+bib <- ReadBib("conferences.bib", check = FALSE)
+
+# NoCite registra todas las entradas (aunque no estén citadas)
+NoCite(bib)
+
+# Imprime toda la bibliografía con formato personalizado
+PrintBibliography(bib, .opts = list(
+  sorting = "ydnt",         # orden: año descendente, autor, título
+  bib.style = "authoryear", # estilo Autor-Año
+  first.inits = TRUE         # iniciales en lugar de nombres completos
+))
+
+```
 
 
+### 2.3. Capítulos de libros
 
+```{r}
+#| echo: false
+#| results: asis
 
+BibOptions(check.entries = FALSE)
 
+# Lee la bibliografía
+bib <- ReadBib("books.bib", check = FALSE)
+
+# NoCite registra todas las entradas (aunque no estén citadas)
+NoCite(bib)
+
+# Imprime toda la bibliografía con formato personalizado
+PrintBibliography(bib, .opts = list(
+  sorting = "ydnt",         # orden: año descendente, autor, título
+  bib.style = "authoryear", # estilo Autor-Año
+  first.inits = TRUE         # iniciales en lugar de nombres completos
+))
+
+```
+
+## 3. Becas
+
+### 3.1. Becas académicas
+
+Becario posdoctoral CONICET (UNA, CEMIC-CONICET) 2023- actualidad
+Tema: “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas”. Directora: Dra. María Soledad Segretin. Co-director: Dr. Juan Esteban Kamienkowski. Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
+
+Becario doctoral CONICET (UNA, CEMIC-CONICET) 2019- 2022
+Tema de Tesis: “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Director: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
+
+Becario FONCyT (UNA, CEMIC-CONICET) 2016- 2019
+Proyecto: PICT 2014 “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Fondo Nacional de Ciencia y Técnica (FONCyT). Investigador responsable: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
+
+### 3.2. Becas para asistir eventos científicos
+
+Peekbank Hackathon (Stanford University) Agosto 2024. 
+
+Early Career Researcher (ISSBD) Octubre 2019. 
+ISSBD Regional Workshop “Investing in Sustainable Childhoods: Implications for preventive and intervention research”. Universidad del Aconcagua. Mendoza 
+
+Student Fellow (James S. McDonnell Foundation) Marzo 2016.
+6th Latin- American School for Education, Cognitive, and Neural Sciences. Lujan, Argentina.
 
 
 
