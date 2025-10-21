@@ -1,0 +1,34 @@
+---
+title: "Federico Giovannetti"
+image: ../img/foto_giovannetti.jpg
+about:
+  template: trestles
+  links:
+    - text: Email
+      url: "mailto:giovannettipsi@gmail.com"
+    - text: GitHub
+      icon: github
+      url: "https://github.com/fedegiovannetti"
+    - text: LinkedIn
+      icon: linkedin
+      url: https://www.linkedin.com/in/fedegiovannetti/ 
+    - text: Linktree
+      icon: tree-fill
+      url: https://linktr.ee/fedegiova
+comments: false
+toc: false
+---
+
+::: {.column-page style="font-size: 80%; margin-right: 60px; margin-left: 0px"}
+## Bio
+
+I'm from Quilmes, Argentina. I earned my PhD in **Psychology** from the Universidad Nacional de Córdoba (UNC).
+
+My main job involves **research**. I work as a CONICET Postdoctoral Fellow at the **Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET)**.
+
+My work has always focused on **child cognitive development in socially vulnerable contexts**, analyzing it from different levels (cognitive, neural, and contextual). I'm also interested in studying the **scientific agendas on child development** in Argentina, and the development of psychology as a scientific discipline.
+
+**Data science** is my primary toolkit. I mainly work with **R**, though I also do some Python from time to time. I'm passionate about applying knowledge from data science, statistical programming, and machine learning to developmental sciences and public policy. Furthermore, I'm keen on contributing to greater transparency, openness, and reproducibility in the use of cognitive data.
+
+I have taught and continue to teach at various undergraduate and graduate institutions, including the Universidad Nacional de San Martin (UNSAM), the Universidad Nacional de Córdoba (UNC), and Universidad Favaloro
+:::

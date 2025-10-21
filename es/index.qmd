@@ -1,6 +1,6 @@
 ---
 title: "Federico Giovannetti"
-image: foto_giovannetti.jpg
+image: ../img/foto_giovannetti.jpg
 about:
   template: trestles
   links:
@@ -18,10 +18,11 @@ about:
 comments: false
 toc: false
 ---
+
 ::: {.column-page style="font-size: 80%; margin-right: 60px; margin-left: 0px"}
 ## Bio
 
-Soy Argentino, nacido en el partido de Quilmes. Me recibí como Doctor en **Psicología** en la Universidad Nacional de Córdoba (UNC) y como Licenciado en Psicología en la Universidad Favaloro. 
+Soy Argentino, nacido en el partido de Quilmes. Me recibí como Doctor en **Psicología** en la Universidad Nacional de Córdoba (UNC) y como Licenciado en Psicología en la Universidad Favaloro.
 
 En el ámbito de la **investigación**, me desempeño como Becario postdoctoral CONICET en la **Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET)**. En agosto de 2025 me salió el ingreso a la Carrera de Investigador Científico (CIC) para la cual estoy esperando el alta.
 

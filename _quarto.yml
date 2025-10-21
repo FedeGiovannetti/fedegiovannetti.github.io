@@ -1,13 +1,23 @@
 project:
   type: website
 
-website:
+site:
+  lang: es 
+  languages:
+    default: es  
+    es:
+      text: Español
+      href: ./es/
+    en:
+      text: English
+      href: ./en/
+      
   title: "fedegiovannetti.github.io"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - href: CV.qmd
+      - href: es/index.qmd
+        text: Inicio
+      - href: es/CV.qmd
         text: CV
       - href: https://substack.com/@fedegiovannetti?
         text: Blog
@@ -19,6 +29,7 @@ format:
       - brand
     css: styles.css
     toc: true
+    include-after-body: toggle-lang.html
 
 editor: visual
 

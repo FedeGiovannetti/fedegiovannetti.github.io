@@ -1,0 +1,11 @@
+site:
+  lang: en
+  title: "Fede Giovannetti" # Or your preferred title in English
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: CV.qmd
+        text: CV
+      - href: https://substack.com/@fedegiovannetti?
+        text: Blog

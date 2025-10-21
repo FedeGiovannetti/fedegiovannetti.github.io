@@ -1,0 +1,240 @@
+---
+title: "Dr. Federico Giovannetti"
+csl: apa.csl
+citeproc: false
+nocite: "@*"
+format:
+  html:
+    theme: cosmo
+    toc: true
+  pdf:
+    documentclass: article
+    lang: es
+    geometry: "margin=2cm"
+    include-in-header:
+      - text: |
+          \usepackage{fontawesome5}
+          \usepackage{xcolor}
+---
+
+::::::: {.content-visible when-format="html"}
+:::::: {.columns style="align-items: flex-start;"}
+::: {.column width="70%"}
+[Descargar CV](CV.pdf)
+
+**Languages:** Spanish, english and portuguese\
+**Programming:** R, Shiny, Github, Python, MNE. <br> [giovannettipsi\@gmail.com](mailto:giovannettipsi@gmail.com)
+
+![](../img/logo_UNA.png){width="70%"}
+:::
+
+:::: {.column width="30%"}
+::: {style="margin-top: -15px;"}
+![](../img/foto_giovannetti.jpg){width="100%"}
+:::
+::::
+::::::
+:::::::
+
+::: {.content-visible when-format="pdf"}
+```{=latex}
+\noindent
+\begin{minipage}[t]{0.7\textwidth}
+\vspace{0pt}
+\textbf{Languajes:} Spanish, english and portuguese \\
+\textbf{Programming:} R, Shiny, Github, Python, MNE.\\[0.8em]
+
+I'm from Quilmes, Argentina. My main job involves research, working as a Postdoctoral Fellow at the Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET). \\[0.5em]
+
+My work has always focused on child cognitive development in socially vulnerable contexts, analyzing it from different levels (cognitive, neural, and contextual). I'm also interested in studying the scientific agendas on child development in Argentina, and the development of psychology as a scientific discipline. \\[0.5em]
+
+Data science is my primary toolkit. I mainly work with R, though I also do some Python from time to time. I'm passionate about applying knowledge from data science, statistical programming, and machine learning to developmental sciences and public policy. Furthermore, I'm keen on contributing to greater transparency, openness, and reproducibility in the use of cognitive data. \\[0.5em]
+
+I have taught and continue teaching at various undergraduate and graduate institutions, including the Universidad Nacional de San Martin (UNSAM), the Universidad Nacional de Córdoba (UNC), and Universidad Favaloro
+
+\end{minipage}%
+\hspace{0.05\textwidth}%
+\begin{minipage}[t]{0.25\textwidth}
+\vspace{0pt}
+\centering
+\includegraphics[width=\linewidth]{../img/foto_giovannetti.jpg}
+\vspace{0.5em}
+\href{mailto:giovannettipsi@gmail.com}{\textcolor{gray!70!black}{\faEnvelope}\ giovannettipsi@gmail.com} \\[0.5em]
+\href{https://github.com/fedegiovannetti}{\textcolor{black}{\faGithub}\ GitHub} \quad
+\href{https://www.linkedin.com/in/fedegiovannetti/}{\textcolor{blue!70!black}{\faLinkedin}\ LinkedIn} \quad
+\href{https://linktr.ee/fedegiova}{\textcolor{green!60!black}{\faTree}\ Linktree} \\[0.8em]
+\end{minipage}
+```
+:::
+
+::: {.content-visible when-format="html"}
+
+I'm from Quilmes, Argentina. My main job involves research, working as a Postdoctoral Fellow at the Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
+
+My work has always focused on child cognitive development in socially vulnerable contexts, analyzing it from different levels (cognitive, neural, and contextual). I'm also interested in studying the scientific agendas on child development in Argentina, and the development of psychology as a scientific discipline.
+
+Data science is my primary toolkit. I mainly work with R, though I also do some Python from time to time. I'm passionate about applying knowledge from data science, statistical programming, and machine learning to developmental sciences and public policy. Furthermore, I'm keen on contributing to greater transparency, openness, and reproducibility in the use of cognitive data.
+
+I have taught and continue teaching at various undergraduate and graduate institutions, including the Universidad Nacional de San Martin (UNSAM), the Universidad Nacional de Córdoba (UNC), and Universidad Favaloro
+:::
+
+## 1. Education:
+
+Phd in Psychology. 
+Advisors: Dr. Lipina, Sebastián Javier. Co-advisor: Dr. Segretin, María Soledad
+Universidad Nacional de Córdoba, Facultad de Psicología. Córdoba. (2016- 2021).
+
+Bachelor in psychology. 
+Universidad Favaloro, Facultad de ciencias humanas y de la conducta. Psicología. 
+C.A.B.A, Argentina. (2010 – 2014)
+
+## 2.- Publications:
+
+### 2.1. Publications in journals
+
+```{r}
+#| echo: false
+#| results: asis
+
+library(RefManageR)
+
+BibOptions(check.entries = FALSE)
+
+# Lee la bibliografía
+bib <- ReadBib("../references/pubs.bib", check = FALSE)
+
+# NoCite registra todas las entradas (aunque no estén citadas)
+NoCite(bib)
+
+# Imprime toda la bibliografía con formato personalizado
+PrintBibliography(bib, .opts = list(
+  sorting = "ydnt",         # orden: año descendente, autor, título
+  bib.style = "authoryear", # estilo Autor-Año
+  first.inits = TRUE         # iniciales en lugar de nombres completos
+))
+
+```
+
+### 2.2. Conferences
+
+```{r}
+#| echo: false
+#| results: asis
+
+BibOptions(check.entries = FALSE)
+
+# Lee la bibliografía
+bib <- ReadBib("../references/conferences.bib", check = FALSE)
+
+# NoCite registra todas las entradas (aunque no estén citadas)
+NoCite(bib)
+
+# Imprime toda la bibliografía con formato personalizado
+PrintBibliography(bib, .opts = list(
+  sorting = "ydnt",         # orden: año descendente, autor, título
+  bib.style = "authoryear", # estilo Autor-Año
+  first.inits = TRUE         # iniciales en lugar de nombres completos
+))
+
+```
+
+### 2.3. Book chapters
+
+```{r}
+#| echo: false
+#| results: asis
+
+BibOptions(check.entries = FALSE)
+
+# Lee la bibliografía
+bib <- ReadBib("../references/books.bib", check = FALSE)
+
+# NoCite registra todas las entradas (aunque no estén citadas)
+NoCite(bib)
+
+# Imprime toda la bibliografía con formato personalizado
+PrintBibliography(bib, .opts = list(
+  sorting = "ydnt",         # orden: año descendente, autor, título
+  bib.style = "authoryear", # estilo Autor-Año
+  first.inits = TRUE         # iniciales en lugar de nombres completos
+))
+
+```
+
+## 3. Experience
+
+Becario posdoctoral (UNA, CEMIC- CONICET) 2023- Presente. Proyecto: PICT 2021 “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas”. Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET). Directora: Dr. María Soledad Segretin. Co-director: Dr. Juan Esteban Kamienkowski.
+
+Investigador asociado (UNA, CEMIC- CONICET) 2022- 2023. Proyecto: PICT 2019 “Desarrollo infantil integral: análisis de la relación entre las políticas de primera infancia y la agenda científica”. Fondo Nacional de Ciencia y Técnica (FONCyT). Investigadora responsable: Dr. Mariana C. Smulski. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
+
+Becario doctoral (UNA, CEMIC- CONICET) 2016- 2022. Proyecto: PICT 2014 “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Fondo Nacional de Ciencia y Técnica (FONCyT). Investigador responsable: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
+
+Operador (UNA, CEMIC-CONICET) 2014-2015. Proyecto: “Vulnerabilidad social y desarrollo cognitivo: estrategias de optimización en contextos de crianza”. Fondo Nacional de Ciencia y Técnica (FONCyT). Período 2011-2014. Investigador responsable: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
+
+## 4. Teaching:
+
+Ayudante de Primera. Laboratorio de datos. Instituto de Cálculo. Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires. (2024- actualidad)
+
+Profesor adjunto (dedicación simple). Seminario III: “Pobreza y desarrollo cognitivo: Aportes de la Neurociencia Cognitiva del Desarrollo”. Escuela de Humanidades. Universidad Nacional de San Martin (UNSAM). (2021 - actualidad).
+
+Profesor adjunto. Psicología Evolutiva I. Facultad de Ciencias Humanas y de la Conducta. Universidad Favaloro. Ciudad Autónoma de Buenos Aires. (2024 – actualidad) Profesor. Neurociencia y Educación. Maestría en TICs para la educación. Universidad Politécnica Salesiana del Ecuador (2023 – 2024)
+
+Profesor. Nuevos Enfoques en la Cognición. Maestría en Neurociencias. Universidad Favaloro (UF). (2023- 2024).
+
+Profesor adjunto. Análisis de Datos I. Licenciatura en Sociología. Universidad de Flores (UFLO). (2023 - 2024).
+
+Profesor adjunto. Procesos Básicos III. Facultad de Ciencias Humanas y de la Conducta. Universidad Favaloro. Ciudad Autónoma de Buenos Aires. (2020 – 2023)
+
+Profesor adjunto suplente (dedicación simple). Seminario III: “Pobreza y desarrollo cognitivo: Aportes de la Neurociencia Cognitiva del Desarrollo”. Escuela de Humanidades. Universidad Nacional de San Martin (UNSAM). (2020).
+
+Ayudante de Primera (dedicación simple). Seminario III: “Pobreza y desarrollo cognitivo: Aportes de la Neurociencia Cognitiva del Desarrollo”. Escuela de Humanidades. Universidad Nacional de San Martin (UNSAM). (2016 – 2019).
+
+## 5. Scholarships
+
+### 5.1. Academic scholarships
+
+Becario posdoctoral CONICET (UNA, CEMIC-CONICET) 2023- actualidad Tema: “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas”. Directora: Dra. María Soledad Segretin. Co-director: Dr. Juan Esteban Kamienkowski. Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
+
+Becario doctoral CONICET (UNA, CEMIC-CONICET) 2019- 2022 Tema de Tesis: “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Director: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET).
+
+Becario FONCyT (UNA, CEMIC-CONICET) 2016- 2019 Proyecto: PICT 2014 “Desarrollo cognitivo y aprendizaje en contextos de vulnerabilidad social: Abordajes experimentales”. Fondo Nacional de Ciencia y Técnica (FONCyT). Investigador responsable: Dr. Sebastián J. Lipina. Unidad de Neurobiología Aplicada (UNA, CEMIC- CONICET).
+
+### 5.2. Scholarships for scientific events
+
+Peekbank Hackathon (Stanford University) Agosto 2024.
+
+Early Career Researcher (ISSBD) Octubre 2019. ISSBD Regional Workshop “Investing in Sustainable Childhoods: Implications for preventive and intervention research”. Universidad del Aconcagua. Mendoza
+
+Student Fellow (James S. McDonnell Foundation) Marzo 2016. 6th Latin- American School for Education, Cognitive, and Neural Sciences. Lujan, Argentina.
+
+## 6. Funding:
+
+Investigador Responsable (PICT 2022, CEMIC- CONICET, FONCyT) Título del proyecto: “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas en contextos de pobreza”.
+
+## 7. Other background
+
+### 7.1 Scientific dissemination:
+
+“Desarrollo infantil, vulnerabilidad y cognición: ¿De dónde venimos y hacia dónde vamos? Charla en Pints of Science Argentina 2025
+
+“Círculo de Estudios sobre Infancias y Desarrollo”. Universidad Nacional de San Martin (UNSAM), Carrera de Psicopedagogía (2022 – 2024)
+
+“A Ciencia Abierta: Desarrollo cognitivo y emocional en estudio”. Centro Cultural de la Ciencia. Polo Científico – Tecnológico. Ciudad Autónoma de Buenos Aires (2018 – 2019).
+
+### 7.2. Human Resources Training:
+
+Silvana Zimmermann. Trabajo Final de Egreso para Licenciatura en Psicopedagogía. Escuela de Humanidades, Universidad Nacional de San Martin (2025). Proyecto: “Alfabetización y Vulnerabilidad” Tutor: Federico Giovannetti
+
+Lucila Carvalho, Marianela Cuenca. Trabajo Final de Egreso para Licenciatura en Psicopedagogía. Escuela de Humanidades, Universidad Nacional de San Martin (2025). Proyecto: “Repercusión del uso de pantallas en el aprendizaje durante la primera infancia: Revisión bibliográfica” Tutor: Federico Giovannetti
+
+María Belen Vilaseca, Laura Alvarez. Trabajo Final de Egreso para Licenciatura en Psicopedagogía. Escuela de Humanidades, Universidad Nacional de San Martin (2025). Proyecto: "Prácticas promotoras de la adquisición de los aprendizajes informales de trabajadores de un hogar convivencial con niños, niñas y adolescentes" Tutor: Federico Giovannetti
+
+Lisanti Julieta. Tesis de Licenciatura Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (2023). Proyecto: “Asociación entre el desempeño de Torre de Londres con indicadores de control inhibitorio e impulsividad teniendo en cuenta diferencias de género” Director: Federico giovannetti Co-Director: Giovannetti Federico
+
+Urso Maximiliano. Tesis de Licenciatura en Ciencias de la Computación. Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires. (2021). Proyecto: “CorsiBot: Interfaz humano-computadora para la evaluación de memoria de trabajo” Director: Matías Lopez-Rosenfeld Co-Director: Giovannetti Federico
+
+Bermúdez Daiana. Tesis de Licenciatura en Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (2021). Proyecto: “Análisis de las distintas concepciones etiológicas de los TEA y sus diversas terapias resultantes” Director: Giovannetti Federico
+
+Galán Plaché, Dolores. Tesis de Licenciatura en Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (2020). Proyecto: “Estrategias de afrontamiento y bienestar psicológico: Identificación de diferencias individuales” Director: Giovannetti Federico
+
+
