@@ -1,18 +1,13 @@
 project:
   type: website
+  output-dir: _site
 
 site:
-  lang: es 
-  languages:
-    - id: es
-      text: Español
-      href: ./es/
-      main: true   # <-- ¡ESTA ES LA LÍNEA CLAVE!
-    - id: en
-      text: English
-      href: ./en/
-      
+  site-url: https://fedegiovannetti.github.io/
   title: "fedegiovannetti.github.io"
+  lang: es
+  home: es/index.qmd
+
   navbar:
     left:
       - href: es/index.qmd
@@ -32,4 +27,3 @@ format:
     include-after-body: toggle-lang.html
 
 editor: visual
-
