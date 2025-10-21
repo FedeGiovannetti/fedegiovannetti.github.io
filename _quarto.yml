@@ -4,11 +4,11 @@ project:
 site:
   lang: es 
   languages:
-    default: es  
-    es:
+    - id: es
       text: Español
       href: ./es/
-    en:
+      main: true   # <-- ¡ESTA ES LA LÍNEA CLAVE!
+    - id: en
       text: English
       href: ./en/
       

@@ -20,7 +20,7 @@ format:
 ::::::: {.content-visible when-format="html"}
 :::::: {.columns style="align-items: flex-start;"}
 ::: {.column width="70%"}
-[Descargar CV](CV.pdf)
+[Download CV](CV.pdf)
 
 **Languages:** Spanish, english and portuguese\
 **Programming:** R, Shiny, Github, Python, MNE. <br> [giovannettipsi\@gmail.com](mailto:giovannettipsi@gmail.com)
