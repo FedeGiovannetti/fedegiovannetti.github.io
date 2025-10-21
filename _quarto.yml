@@ -9,6 +9,8 @@ website:
         text: Home
       - href: CV.qmd
         text: CV
+      - href: https://substack.com/@fedegiovannetti?
+        text: Blog
 
 format:
   html:

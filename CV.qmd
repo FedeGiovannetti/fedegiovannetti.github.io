@@ -1,5 +1,5 @@
 ---
-title: Dr. Federico Giovannetti
+title: "Dr. Federico Giovannetti"
 csl: apa.csl
 citeproc: false
 nocite: "@*"
@@ -10,25 +10,22 @@ format:
   pdf:
     documentclass: article
     lang: es
-    geometry: "margin=2cm" # <--- Añade esta línea
-
-website:
-  navbar:
-    right:
-      - text: "Descargar PDF"
-        icon: "download"
-        href: CV.pdf
+    geometry: "margin=2cm"
 ---
+
+
 
 ::: {.content-visible when-format="html"}
 
 :::: {.columns style="align-items: flex-start;"}
 
 ::: {.column width="70%"}
-[giovannettipsi@gmail.com](mailto:giovannettipsi@gmail.com)
+[Descargar CV](CV.pdf)
 
 **Idiomas:** Español, inglés y portugués  
-**Programación:** R, Shiny, Github, Python, MNE.  
+**Programación:** R, Shiny, Github, Python, MNE. 
+<br>
+[giovannettipsi@gmail.com](mailto:giovannettipsi@gmail.com)
 
 ![](logo_UNA.png){width="70%"}
 :::
@@ -52,6 +49,15 @@ website:
 \href{mailto:giovannettipsi@gmail.com}{giovannettipsi@gmail.com} \\
 \textbf{Idiomas:} Español, inglés y portugués \\
 \textbf{Programación:} R, Shiny, Github, Python, MNE.
+<br>
+Soy Argentino, nacido en el partido de Quilmes. En el ámbito de la investigación, me desempeño como Becario postdoctoral CONICET en la Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET). 
+<br>
+Siempre me dediqué al estudio del desarrollo cognitivo infantil en contextos de vulnerabilidad social a partir de diferentes niveles de análisis (cognitivo, neural, contextual). También tengo interés en el estudio de las agendas científicas sobre desarrollo infantil en la Argentina, y el desarrollo de la psicología como disciplina científica.
+<br>
+La ciencia de datos es mi principal herramienta de trabajo. Trabajo fundamentalmente con R, aunque cada tanto hago alguna que otra cosa con Python. Me interesa mucho poder aplicar el conocimiento proveniente de las ciencias de datos, la programación estadística y el machine learning a las ciencias del desarrollo y las políticas públicas. Además, me interesa mucho colaborar en la construcción de una mayor transparencia, apertura y reproducibilidad en el uso de datos cognitivos.
+<br>
+Ejercí y ejerzo la docencia en distintas instituciones de grado y posgrado como la Universidad Nacional de San Martin (UNSAM), la Universidad Nacional de Córdoba (UNC), y la Universidad Favaloro (UF).
+
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.25\textwidth}
@@ -61,6 +67,17 @@ website:
 ```
 :::
 
+::: {.content-visible when-format="html"}
+
+Soy Argentino, nacido en el partido de Quilmes. En el ámbito de la investigación, me desempeño como Becario postdoctoral CONICET en la Unidad de Neurobiología Aplicada (UNA, CEMIC-CONICET). 
+
+Siempre me dediqué al estudio del desarrollo cognitivo infantil en contextos de vulnerabilidad social a partir de diferentes niveles de análisis (cognitivo, neural, contextual). También tengo interés en el estudio de las agendas científicas sobre desarrollo infantil en la Argentina, y el desarrollo de la psicología como disciplina científica.
+
+La ciencia de datos es mi principal herramienta de trabajo. Trabajo fundamentalmente con R, aunque cada tanto hago alguna que otra cosa con Python. Me interesa mucho poder aplicar el conocimiento proveniente de las ciencias de datos, la programación estadística y el machine learning a las ciencias del desarrollo y las políticas públicas. Además, me interesa mucho colaborar en la construcción de una mayor transparencia, apertura y reproducibilidad en el uso de datos cognitivos.
+
+Ejercí y ejerzo la docencia en distintas instituciones de grado y posgrado como la Universidad Nacional de San Martin (UNSAM), la Universidad Nacional de Córdoba (UNC), y la Universidad Favaloro (UF).
+
+:::
 
 ## 1.	Antecedentes Académicos:
 
@@ -215,7 +232,29 @@ Student Fellow (James S. McDonnell Foundation) Marzo 2016.
 Investigador Responsable (PICT 2022, CEMIC- CONICET, FONCyT)
 Título del proyecto: “Diversidad en el desempeño autorregulatorio en los niveles cognitivo, neural y socioambiental: un aporte al diseño de intervenciones cognitivas en contextos de pobreza”.
 
-## 7.	Formación de Recursos Humanos:	
+## 7. Otros antecedentes
+
+### 7.1 Actividades de Extensión y divulgación:	
+
+“Desarrollo infantil, vulnerabilidad y cognición: ¿De dónde venimos y hacia dónde vamos? Charla en Pints of Science Argentina 2025
+
+“Círculo de Estudios sobre Infancias y Desarrollo”. Universidad Nacional de San Martin (UNSAM), Carrera de Psicopedagogía (2022 – 2024)
+
+“A Ciencia Abierta: Desarrollo cognitivo y emocional en estudio”. Centro Cultural de la Ciencia. Polo Científico – Tecnológico. Ciudad Autónoma de Buenos Aires (2018 – 2019).
+
+### 7.2.	Formación de Recursos Humanos:	
+
+Silvana Zimmermann. Trabajo Final de Egreso para Licenciatura en Psicopedagogía. Escuela de Humanidades, Universidad Nacional de San Martin (2025). 
+Proyecto: “Alfabetización y Vulnerabilidad”
+Tutor: Federico Giovannetti
+
+Lucila Carvalho, Marianela Cuenca. Trabajo Final de Egreso para Licenciatura en Psicopedagogía. Escuela de Humanidades, Universidad Nacional de San Martin (2025). 
+Proyecto: “Repercusión del uso de pantallas en el aprendizaje durante la primera infancia: Revisión bibliográfica”
+Tutor: Federico Giovannetti
+
+María Belen Vilaseca, Laura Alvarez. Trabajo Final de Egreso para Licenciatura en Psicopedagogía. Escuela de Humanidades, Universidad Nacional de San Martin (2025). 
+Proyecto: "Prácticas promotoras de la adquisición de los aprendizajes informales de trabajadores de un hogar convivencial con niños, niñas y adolescentes"
+Tutor: Federico Giovannetti
 
 Lisanti Julieta. Tesis de Licenciatura Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (2023).
 Proyecto: “Asociación entre el desempeño de Torre de Londres con indicadores de control
@@ -223,31 +262,23 @@ inhibitorio e impulsividad teniendo en cuenta diferencias de género”
 Director: Federico giovannetti
 Co-Director: Giovannetti Federico
 
-Urso Maximiliano. Tesis de Licenciatura en Ciencias de la Computación. Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires. (mayo 2021).
+Urso Maximiliano. Tesis de Licenciatura en Ciencias de la Computación. Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires. (2021).
 Proyecto: “CorsiBot: Interfaz humano-computadora para la evaluación de memoria de trabajo”
 Director: Matías Lopez-Rosenfeld
 Co-Director: Giovannetti Federico
 
-Bermúdez Daiana. Tesis de Licenciatura en Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (mayo 2021).
+Bermúdez Daiana. Tesis de Licenciatura en Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (2021).
 Proyecto: “Análisis de las distintas concepciones etiológicas de los TEA y sus diversas terapias resultantes”
 Director: Giovannetti Federico
 
-Galán Plaché, Dolores. Tesis de Licenciatura en Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (septiembre 2020).
+Galán Plaché, Dolores. Tesis de Licenciatura en Psicología. Facultad de Ciencias humanas y de la Conducta, Universidad Favaloro. (2020).
 Proyecto: “Estrategias de afrontamiento y bienestar psicológico: Identificación de diferencias individuales”
 Director: Giovannetti Federico
 
-## 8. Organización de eventos científicos:	
+### 7.3. Organización de eventos científicos:	
 
  “III Jornadas de Fundamentos y Aplicaciones de la Interdisciplina” (2022). Ciudad Autónoma de Buenos Aires. Miembro del Comité Organizador.
 “II Jornadas de Fundamentos y Aplicaciones de la Interdisciplina” (2021). Ciudad Autónoma de Buenos Aires. Miembro del Comité Organizador.
-
-## 9    . Actividades de Extensión y divulgación:	
-
-“Desarrollo infantil, vulnerabilidad y cognición: ¿De dónde venimos y hacia dónde vamos? Charla en Pints of Science Argentina 2025
-
-“Círculo de Estudios sobre Infancias y Desarrollo”. Universidad Nacional de San Martin (UNSAM), Carrera de Psicopedagogía (2022 – 2024)
-
-“A Ciencia Abierta: Desarrollo cognitivo y emocional en estudio”. Centro Cultural de la Ciencia. Polo Científico – Tecnológico. Ciudad Autónoma de Buenos Aires (2018 – 2019).
 
 
 

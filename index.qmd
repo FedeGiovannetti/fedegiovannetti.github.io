@@ -4,21 +4,21 @@ image: foto_giovannetti.jpg
 about:
   template: trestles
   links:
-    # - text: LinkedIn
-      # url:
+    - text: Email
+      url: "mailto:giovannettipsi@gmail.com"
     - text: GitHub
       icon: github
       url: "https://github.com/fedegiovannetti"
-    - text: Email
-      url: "mailto:giovannettipsi@gmail.com"
-    # - text: Blog
-      # url: "blog.html"
-    # - text: CV
-      # url: "cv.pdf"
+    - text: LinkedIn
+      icon: linkedin
+      url: https://www.linkedin.com/in/fedegiovannetti/ 
+    - text: Linktree
+      icon: tree-fill
+      url: https://linktr.ee/fedegiova
 comments: false
 toc: false
 ---
-::: {.column-page}
+::: {.column-page style="font-size: 80%; margin-right: 60px; margin-left: 0px"}
 ## Bio
 
 Soy Argentino, nacido en el partido de Quilmes. Me recibí como Doctor en **Psicología** en la Universidad Nacional de Córdoba (UNC) y como Licenciado en Psicología en la Universidad Favaloro. 
@@ -27,11 +27,7 @@ En el ámbito de la **investigación**, me desempeño como Becario postdoctoral 
 
 Siempre me dediqué al estudio del **desarrollo cognitivo infantil en contextos de vulnerabilidad social** a partir de diferentes niveles de análisis (cognitivo, neural, contextual). También tengo interés en el estudio de las **agendas científicas sobre desarrollo infantil** en la Argentina, y el desarrollo de la psicología como disciplina científica.
 
-La **ciencia de datos** es mi principal herramienta de trabajo. Principalmente trabajo con **R**, aunque cada tanto hago alguna que otra cosa con Python. Me interesa mucho poder aplicar el conocimiento proveniente de las ciencias de datos, la programación estadística y el machine learning a las ciencias del desarrollo y las políticas públicas. Además, me interesa mucho colaborar en la construcción de una mayor transparencia, apertura y reproducibilidad en el uso de datos cognitivos.
+La **ciencia de datos** es mi principal herramienta de trabajo. Trabajo fundamentalmente con **R**, aunque cada tanto hago alguna que otra cosa con Python. Me interesa mucho poder aplicar el conocimiento proveniente de las ciencias de datos, la programación estadística y el machine learning a las ciencias del desarrollo y las políticas públicas. Además, me interesa mucho colaborar en la construcción de una mayor transparencia, apertura y reproducibilidad en el uso de datos cognitivos.
 
 Ejercí y ejerzo la docencia en distintas instituciones de grado y posgrado entre las que se encuentran la Universidad Nacional de San Martin (UNSAM), la Universidad Nacional de Córdoba (UNC), y la Universidad Favaloro.
-
-
-<p></p>
-
 :::
