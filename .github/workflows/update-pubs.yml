@@ -53,6 +53,11 @@ jobs:
           Rscript -e "if (!require('renv')) install.packages('renv')"
           Rscript -e "renv::restore()"
         shell: bash
+        
+      # Aseguramos que los paquetes clave estén instalados
+      - name: Install R dependencies (Safeguard)
+        run: Rscript -e "install.packages(c('rorcid', 'jsonlite', 'dplyr'))"
+        shell: bash
 
       # --- PASO 2: Ejecutar Script de R y Comprobar Salida ---
       
