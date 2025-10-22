@@ -53,25 +53,33 @@ jobs:
           Rscript -e "if (!require('renv')) install.packages('renv')"
           Rscript -e "renv::restore()"
         shell: bash
-        
-      # Aseguramos que los paquetes clave estén instalados
-      - name: Install R dependencies (Safeguard)
-        run: Rscript -e "install.packages(c('rorcid', 'jsonlite', 'dplyr'))"
-        shell: bash
 
       # --- PASO 2: Ejecutar Script de R y Comprobar Salida ---
       
       # Ejecuta el script de R y captura su salida de texto para
-      # ver si imprimió "Added new citations".
+      # que podamos comprobar si se encontraron nuevas publicaciones.
       - name: Run R Script and Check for new citations
-        id: check_changes
         run: |
-          # Ejecuta el script y guarda su salida (stdout y stderr) en una variable
-          OUTPUT=$(Rscript -e "source('references/retrieve_references.R')" 2>&1)
+          # Fusionamos la instalación de paquetes y la ejecución del script
+          # para asegurar que se ejecuten en la misma sesión y contexto.
+          R_SCRIPT_COMMAND="
+          if (!require('rorcid', quietly = TRUE)) install.packages('rorcid');
+          if (!require('jsonlite', quietly = TRUE)) install.packages('jsonlite');
+          if (!require('dplyr', quietly = TRUE)) install.packages('dplyr');
+          
+          print('--- Paquetes asegurados. Ejecutando script... ---');
+          
+          source('references/retrieve_references.R');
+          "
+          
+          # Ejecuta el comando de R y guarda su salida (stdout y stderr) en una variable
+          OUTPUT=$(Rscript -e "$R_SCRIPT_COMMAND" 2>&1)
           
           # Imprime la salida del R script al log (para depuración)
+          echo "--- R Script Output ---"
           echo "$OUTPUT"
-
+          echo "-----------------------"
+          
           # Comprueba si la salida contiene la frase "Added new citations"
           if echo "$OUTPUT" | grep -q "Added new citations"; then
             echo "¡Nuevas publicaciones encontradas! Preparando para publicar..."
