@@ -21,10 +21,6 @@ orcid_works_all <- works(orcid_id) %>%
   as.data.frame() %>% 
   select('put-code', type, title.title.value, url.value, 'publication-date.year.value', 'journal-title.value')
 
-# Store this df as it will be relevant to check for updates
-
-write.csv((orcid_works_all), "references/orcid_works_check.csv", row.names = F)
-
 # Retrieve all citations (this is a different way of accessing the data
 # and gives more-formatted citations)
 
@@ -49,5 +45,7 @@ if (nrow(orcid_works_check) < nrow(orcid_works_all)){
   
 }
 
+# Store this df as it will be relevant to check for future updates
 
+write.csv((orcid_works_all), "references/orcid_works_check.csv", row.names = F)
 

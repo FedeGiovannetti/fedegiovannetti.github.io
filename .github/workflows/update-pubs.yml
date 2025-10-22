@@ -1,0 +1,105 @@
+# Nombre del workflow
+name: Actualizar Publicaciones Semanalmente
+
+on:
+  # 1. Permite ejecutarlo manualmente desde la pestaña "Actions" en GitHub
+  workflow_dispatch:
+  
+  # 2. Lo programa para ejecutarse todos los lunes a las 5:00 AM (UTC)
+  # (Puedes ajustar la hora si lo prefieres)
+  schedule:
+    - cron: '0 5 * * 1'
+
+jobs:
+  # Único job: actualizar y publicar
+  update-and-deploy:
+    # Se ejecuta en el último runner de Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      # --- PASO 1: Configuración del Entorno ---
+      
+      # Clona tu repositorio en el runner
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # fetch-depth: 0 es necesario para que Quarto publish funcione
+          fetch-depth: 0
+
+      # Configura R
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'latest'
+          # Usa el gestor de paquetes de RStudio para instalaciones más rápidas
+          use-public-rspm: true
+
+      # Configura Quarto
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      # Configura el caché de R para que las dependencias se instalen rápido
+      - name: Cache R packages
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.RENV_PATHS_CACHE }}
+          key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
+
+      # Instala las dependencias de R usando tu archivo renv.lock
+      - name: Install R dependencies
+        run: |
+          Rscript -e "if (!require('renv')) install.packages('renv')"
+          Rscript -e "renv::restore()"
+        shell: bash
+
+      # --- PASO 2: Ejecutar Script de R y Comprobar Salida ---
+      
+      # Ejecuta el script de R y captura su salida de texto para
+      # ver si imprimió "Added new citations".
+      - name: Run R Script and Check for new citations
+        id: check_changes
+        run: |
+          # Ejecuta el script y guarda su salida (stdout y stderr) en una variable
+          OUTPUT=$(Rscript -e "source('references/retrieve_references.R')" 2>&1)
+          
+          # Imprime la salida del R script al log (para depuración)
+          echo "$OUTPUT"
+
+          # Comprueba si la salida contiene la frase "Added new citations"
+          if echo "$OUTPUT" | grep -q "Added new citations"; then
+            echo "¡Nuevas publicaciones encontradas! Preparando para publicar..."
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+          else
+            echo "No hay publicaciones nuevas. No se requiere ninguna acción."
+            echo "changes_detected=false" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
+        
+      # --- PASO 3: Hacer Commit y Publicar (SOLO SI HUBO CAMBIOS) ---
+
+      # Si se detectaron cambios, se "commitean" al repositorio
+      - name: Commit updated references
+        # Este paso solo se ejecuta si el paso 'check_changes' detectó algo
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action (Update Pubs)"
+          git add references/
+          git commit -m "chore: Actualización automática de referencias de publicaciones"
+          git push
+        shell: bash
+
+      # Finalmente, si hubo cambios, publica el sitio web en GitHub Pages
+      - name: Publish to GitHub Pages
+        # Este paso también depende de la variable 'changes_detected'
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          # Publica en la rama 'gh-pages' (la estándar para Quarto)
+          target: gh-pages
+        env:
+          # El GITHUB_TOKEN es necesario para que la Action pueda publicar
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
