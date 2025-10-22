@@ -74,6 +74,7 @@ jobs:
           Rscript -e "if (!require('rorcid', quietly = TRUE)) install.packages('rorcid')"
           Rscript -e "if (!require('jsonlite', quietly = TRUE)) install.packages('jsonlite')"
           Rscript -e "if (!require('dplyr', quietly = TRUE)) install.packages('dplyr')"
+          Rscript -e "if (!require('rcrossref', quietly = TRUE)) install.packages('rcrossref')"
         shell: bash
 
       # --- PASO 2A: Obtener datos de ORCID ---
