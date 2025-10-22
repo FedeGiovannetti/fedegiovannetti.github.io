@@ -54,7 +54,7 @@ jobs:
         uses: actions/cache@v4
         with:
           # Usa la ruta de caché correcta generada por el paso 'setup-r'
-          path: ${{ steps.setup-r.outputs.renv-paths-cache }}
+          path: ~/.local/share/renv
           key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
