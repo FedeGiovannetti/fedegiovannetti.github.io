@@ -1,29 +1,32 @@
-# Nombre del workflow
-name: Actualizar Publicaciones Semanalmente
+name: Actualización Semanal de Publicaciones
 
+# --- Disparadores (Triggers) ---
 on:
-  # 1. Permite ejecutarlo manualmente desde la pestaña "Actions" en GitHub
-  workflow_dispatch:
-  
-  # 2. Lo programa para ejecutarse todos los lunes a las 5:00 AM (UTC)
-  # (Puedes ajustar la hora si lo prefieres)
+  # 1. Se ejecuta automáticamente cada lunes a las 5:00 AM UTC
   schedule:
     - cron: '0 5 * * 1'
+  
+  # 2. Permite la ejecución manual desde la pestaña "Actions" de GitHub
+  workflow_dispatch:
 
 jobs:
-  # Único job: actualizar y publicar
-  update-and-deploy:
-    # Se ejecuta en el último runner de Ubuntu
+  update-and-publish:
     runs-on: ubuntu-latest
+    
+    # Permisos necesarios para hacer commit y publicar en gh-pages
+    permissions:
+      contents: write  # Para hacer commit de los .bib
+      pages: write     # Para publicar en gh-pages
+      id-token: write  # Para autenticación de gh-pages
 
     steps:
-      # --- PASO 1: Configuración del Entorno ---
-      
-      # Clona tu repositorio en el runner
-      - name: Checkout repository
+      # --- PASO 0: Configuración Inicial ---
+
+      # Clona el repositorio
+      - name: Check out repository
         uses: actions/checkout@v4
         with:
-          # fetch-depth: 0 es necesario para que Quarto publish funcione
+          # Necesario para que quarto-actions pueda hacer commit
           fetch-depth: 0
 
       # Configura R
@@ -33,25 +36,44 @@ jobs:
           r-version: 'latest'
           # Usa el gestor de paquetes de RStudio para instalaciones más rápidas
           use-public-rspm: true
+        # Añadimos un ID a este paso para poder referenciarlo
+        id: setup-r
 
       # Configura Quarto
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+      
+      # Instala librerías del sistema Ubuntu
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
 
       # Configura el caché de R para que las dependencias se instalen rápido
       - name: Cache R packages
         uses: actions/cache@v4
         with:
-          path: ~/.local/share/renv
+          # Usa la ruta de caché correcta generada por el paso 'setup-r'
+          path: ${{ steps.setup-r.outputs.renv-paths-cache }}
           key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
 
+      # --- PASO 1: Instalar Dependencias de R ---
+
       # Instala las dependencias de R usando tu archivo renv.lock
-      - name: Install R dependencies
+      - name: Install R dependencies (from renv)
         run: |
           Rscript -e "if (!require('renv')) install.packages('renv')"
           Rscript -e "renv::restore()"
+        shell: bash
+
+      # PASO NUEVO: Aseguramos que los paquetes clave estén instalados
+      - name: Install R dependencies (Safeguard)
+        run: |
+          Rscript -e "if (!require('rorcid', quietly = TRUE)) install.packages('rorcid')"
+          Rscript -e "if (!require('jsonlite', quietly = TRUE)) install.packages('jsonlite')"
+          Rscript -e "if (!require('dplyr', quietly = TRUE)) install.packages('dplyr')"
         shell: bash
 
       # --- PASO 2: Ejecutar Script de R y Comprobar Salida ---
@@ -60,15 +82,9 @@ jobs:
       # que podamos comprobar si se encontraron nuevas publicaciones.
       - name: Run R Script and Check for new citations
         run: |
-          # Fusionamos la instalación de paquetes y la ejecución del script
-          # para asegurar que se ejecuten en la misma sesión y contexto.
+          # Ahora solo ejecutamos el script, asumiendo que los paquetes están instalados
           R_SCRIPT_COMMAND="
-          if (!require('rorcid', quietly = TRUE)) install.packages('rorcid');
-          if (!require('jsonlite', quietly = TRUE)) install.packages('jsonlite');
-          if (!require('dplyr', quietly = TRUE)) install.packages('dplyr');
-          
-          print('--- Paquetes asegurados. Ejecutando script... ---');
-          
+          print('--- Ejecutando script retrieve_references.R... ---');
           source('references/retrieve_references.R');
           "
           
@@ -89,31 +105,31 @@ jobs:
             echo "changes_detected=false" >> $GITHUB_OUTPUT
           fi
         shell: bash
-        
-      # --- PASO 3: Hacer Commit y Publicar (SOLO SI HUBO CAMBIOS) ---
 
-      # Si se detectaron cambios, se "commitean" al repositorio
-      - name: Commit updated references
-        # Este paso solo se ejecuta si el paso 'check_changes' detectó algo
-        if: steps.check_changes.outputs.changes_detected == 'true'
+      # --- PASO 3: Hacer Commit de los Cambios (si los hay) ---
+      
+      # Este paso solo se ejecuta si el paso anterior (id: check_script)
+      # detectó cambios (outputs.changes_detected == 'true')
+      - name: Commit publication files
+        if: steps.check_script.outputs.changes_detected == 'true'
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action (Update Pubs)"
-          git add references/
-          git commit -m "chore: Actualización automática de referencias de publicaciones"
-          git push
-        shell: bash
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Action"
+          git add references/pubs.bib references/conferences.bib references/books.bib references/orcid_works_check.csv
+          
+          # Solo hace commit si hay algo que "comitear"
+          # El "|| true" evita que el workflow falle si no hay cambios (aunque no debería llegar aquí)
+          git commit -m "Actualización automática de publicaciones desde ORCID" || true
+          git push || true # Empuja los cambios, ignora si no hay nada que empujar
 
-      # Finalmente, si hubo cambios, publica el sitio web en GitHub Pages
+      # --- PASO 4: Publicar en GitHub Pages (si hubo cambios) ---
+      
+      # Este paso también depende de la variable 'changes_detected'
       - name: Publish to GitHub Pages
-        # Este paso también depende de la variable 'changes_detected'
-        if: steps.check_changes.outputs.changes_detected == 'true'
+        if: steps.check_script.outputs.changes_detected == 'true'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          # Publica en la rama 'gh-pages' (la estándar para Quarto)
           target: gh-pages
         env:
-          # El GITHUB_TOKEN es necesario para que la Action pueda publicar
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  
