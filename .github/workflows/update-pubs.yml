@@ -76,25 +76,19 @@ jobs:
           Rscript -e "if (!require('dplyr', quietly = TRUE)) install.packages('dplyr')"
         shell: bash
 
-      # --- PASO 2: Ejecutar Script de R y Comprobar Salida ---
-      
-      # Ejecuta el script de R y captura su salida de texto para
-      # que podamos comprobar si se encontraron nuevas publicaciones.
-      - name: Run R Script and Check for new citations
-        id: check_script
-        # ¡IMPORTANTE! Pasa el Token de ORCID como una variable de entorno
-        # El paquete 'rorcid' sabe cómo usar esta variable automáticamente.
+      # --- PASO 2A: Obtener datos de ORCID ---
+      - name: "Fetch ORCID Data (Script 1)"
         env:
           ORCID_TOKEN: ${{ secrets.ORCID_TOKEN }}
+        run: Rscript references/1-fetch_orcid_data.R
+        shell: bash
+
+      # --- PASO 2B: Procesar Datos y Comprobar Cambios ---
+      - name: "Process Data and Check Changes (Script 2)"
+        id: check_script
         run: |
-          # Simplemente ejecutamos tu script de R
-          R_SCRIPT_COMMAND="
-            print('--- Ejecutando script retrieve_references.R... ---');
-            source('references/retrieve_references.R');
-          "
-          
-          # Ejecuta el comando de R y guarda su salida
-          OUTPUT=$(Rscript -e "$R_SCRIPT_COMMAND" 2>&1)
+          # Ejecuta el script 2 y guarda su salida
+          OUTPUT=$(Rscript references/2-process_references.R 2>&1)
           
           # Imprime la salida del R script al log (para depuración)
           echo "--- R Script Output ---"
@@ -111,6 +105,11 @@ jobs:
           fi
         shell: bash
 
+      # --- PASO 2C: Limpiar archivos temporales ---
+      - name: Clean up temporary files
+        run: rm -f orcid_works_all.rds all_citations.rds
+        shell: bash
+
       # --- PASO 3: Hacer Commit de los Cambios (si los hay) ---
       
       # Este paso solo se ejecuta si el paso anterior (id: check_script)
@@ -123,7 +122,6 @@ jobs:
           git add references/pubs.bib references/conferences.bib references/books.bib references/orcid_works_check.csv
           
           # Solo hace commit si hay algo que "comitear"
-          # El "|| true" evita que el workflow falle si no hay cambios (aunque no debería llegar aquí)
           git commit -m "Actualización automática de publicaciones desde ORCID" || true
           git push || true # Empuja los cambios, ignora si no hay nada que empujar
 
