@@ -32,7 +32,12 @@ all_citations <- rorcid::orcid_citations(orcid_id)
 ## conditional if "orcid_works_check.csv" 
 ## has less rows than the current orcid_works_all
 
-orcid_works_check <- read.csv("references/orcid_works_check.csv")
+orcid_works_check <- tryCatch({
+  read.csv("references/orcid_works_check.csv")
+}, error = function(e) {
+  print("Advertencia: No se encontró orcid_works_check.csv. Asumiendo primera ejecución.")
+  data.frame() # Devuelve un dataframe vacío
+})
 
 if (nrow(orcid_works_check) < nrow(orcid_works_all)){
   
