@@ -81,14 +81,19 @@ jobs:
       # Ejecuta el script de R y captura su salida de texto para
       # que podamos comprobar si se encontraron nuevas publicaciones.
       - name: Run R Script and Check for new citations
+        id: check_script
+        # ¡IMPORTANTE! Pasa el Token de ORCID como una variable de entorno
+        # El paquete 'rorcid' sabe cómo usar esta variable automáticamente.
+        env:
+          ORCID_TOKEN: ${{ secrets.ORCID_TOKEN }}
         run: |
-          # Ahora solo ejecutamos el script, asumiendo que los paquetes están instalados
+          # Simplemente ejecutamos tu script de R
           R_SCRIPT_COMMAND="
-          print('--- Ejecutando script retrieve_references.R... ---');
-          source('references/retrieve_references.R');
+            print('--- Ejecutando script retrieve_references.R... ---');
+            source('references/retrieve_references.R');
           "
           
-          # Ejecuta el comando de R y guarda su salida (stdout y stderr) en una variable
+          # Ejecuta el comando de R y guarda su salida
           OUTPUT=$(Rscript -e "$R_SCRIPT_COMMAND" 2>&1)
           
           # Imprime la salida del R script al log (para depuración)
